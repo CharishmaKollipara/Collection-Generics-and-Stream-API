@@ -1,0 +1,221 @@
+Question
+
+Inner Class
+Address Book
+
+Create an AddressBook class with the attributes
+
+private long phoneNumber
+
+private Address tempAddress
+
+private Address permAddress
+
+Include appropriate getter and setter methods for the above attributes.
+
+ Create an Address class with the private attributes
+
+String name, street, city, state.
+
+Include appropriate getter and setter methods for the above attributes.
+
+The Address class must be available only to AddressBook class. So the Address class should come as a Inner classs in AddessBook class.
+
+Test the application by creating AddressBook object and print permanent ,temporary address and phone number in the main method.
+
+Sample Input 
+
+Enter the permanent address
+
+Enter the house name
+
+Maya Illam
+
+Enter the street
+
+1st street
+
+Enter the city
+
+chennai
+
+Enter the state
+
+tamilnadu
+
+Enter the temporary address
+
+Enter the house name
+
+May flower
+
+Enter the street
+
+2nd street
+
+Enter the city
+
+coimbatore
+
+Enter the state
+
+tamilnadu
+
+Enter the phone number
+
+9874561230
+
+Sample output
+
+Permanent address
+
+House name:Maya Illam
+
+Street:1st street
+
+City:chennai
+
+State:tamilnadu
+
+Temporary address
+
+House name:May flower
+
+Street:2nd street
+
+City:coimbatore
+
+State:tamilnadu
+
+Phone number
+
+9874561230
+
+
+AddressBook.java
+
+import java.util.Scanner;
+
+//import AddressBook.Address;
+import java.util.*;
+public class AddressBook {
+	private long phoneNumber;
+	private Address tempAddress;
+	private Address permAddress;
+	private String name;
+	private String street;
+	private String state;
+	private String city;
+	//private String name;
+	Scanner sc = new Scanner(System.in);
+	//AddressBook abobject = new AddressBook();
+	Address addressobject = new Address();
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public Address getTempAddress() {
+		System.out.println("Enter the temporary address");
+		System.out.println("Enter the house name");
+		name = sc.nextLine();
+		System.out.println("Enter the street");
+		street = sc.nextLine();
+		System.out.println("Enter the city");
+		city = sc.nextLine();
+		System.out.println("Enter the state");
+		state = sc.nextLine();
+		System.out.println("Enter the phone number");
+		setPhoneNumber(sc.nextLong());
+		return tempAddress;
+	}
+	public void setTempAddress(Address tempAddress) {
+		this.tempAddress = tempAddress;
+	}
+	public void tempAddress() {
+		System.out.println("Temporary address");
+		//System.out.println("Permanent address");
+		System.out.println("House name:" + name);
+		System.out.println("Street:" + street);
+		System.out.println("City:" + city);
+		System.out.println("State:" + state);
+		System.out.println("Phone number\n" + getPhoneNumber());
+		
+	}
+	public Address getPermAddress() {
+		System.out.println("Enter the permanent address");
+		System.out.println("Enter the house name");
+		addressobject.setName(sc.nextLine());
+		System.out.println("Enter the street");
+		addressobject.setStreet(sc.nextLine());
+		System.out.println("Enter the city");
+		addressobject.setCity(sc.nextLine());
+		System.out.println("Enter the state");
+		addressobject.setState(sc.nextLine());
+		
+		return permAddress;
+	}
+	public void setPermAddress(Address permAddress) {
+		this.permAddress = permAddress;
+	}
+	public void permAddress() {
+		System.out.println("Permanent address");
+		System.out.println("House name:" +addressobject.getName());
+		System.out.println("Street:" + addressobject.getStreet());
+		System.out.println("City:" + addressobject.getCity());
+		System.out.println("State:" + addressobject.getState());
+		//this.permAddress = permAddress;
+	}
+	class Address{
+		private String name;
+		private String street;
+		private String city;
+		private String state;
+		
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getStreet() {
+			return street;
+		}
+		public void setStreet(String street) {
+			this.street = street;
+		}
+		public String getCity() {
+			return city;
+		}
+		public void setCity(String city) {
+			this.city = city;
+		}
+		public String getState() {
+			return state;
+		}
+		public void setState(String state) {
+			this.state = state;
+		}
+		
+	}
+}
+
+
+
+TestApplication.java
+
+
+
+public class TestApplication {
+
+	public static void main(String[] args) {
+		AddressBook aobject = new AddressBook();
+		aobject.getPermAddress();
+		aobject.getTempAddress();
+		aobject.permAddress();
+		aobject.tempAddress();
+
+	}
+
+}
